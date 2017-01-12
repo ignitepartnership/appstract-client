@@ -1,0 +1,17 @@
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# compiled output
+/tmp
+
+# dependencies
+/node_modules
+/.idea
+/builds
+/appstract-linux-ia32
+/build
+/dist
+/appstract-darwin-x64
+
+#System Files
+.DS_Store
+Thumbs.db

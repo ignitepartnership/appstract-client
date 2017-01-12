@@ -1,0 +1,17 @@
+div.container
+    h1.text-center Appstract
+    p.text-center
+        small from&nbsp;
+        a.small.text-center((click)='openUrl("http://www.ignitepartnership.com")') Ignite Partnership
+        //small in Dallas
+
+    settings((settingsUpdate)="restart()")
+    br
+    button.btn.btn-warning.col-xs-6((click)='restart()') <span class="glyphicon glyphicon-repeat" aria-hidden="true"></span>
+    button.btn.btn-danger.col-xs-6((click)='quit()') <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+    br
+    br
+    button.btn.btn-lg.btn-default.btn-block((click)='openAppstractViewer()') View Appstract
+
+
+

@@ -1,0 +1,6 @@
+form
+    .form-group
+        label(for='url') Server url
+        input#url.form-control(type='text', [(ngModel)]="url", name="url", placeholder="http://localhost:4300")
+    button.btn.btn-success.btn-block((click)="saveUrl(url)") Update
+
