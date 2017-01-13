@@ -45,7 +45,7 @@ export class MousePositionService {
             this.socket = this.socketService.getSocket();
             console.log('sending mouse position %s %s', JSON.stringify({x: mouse.x, y: mouse.y}), Date.now())
 
-            this.socket.emit('mouseEvent', { x: mouse.x, y:mouse.y, id:this.socket.id, ip: ip.address(), workArea:display.size});
+            this.socket.emit('mouseEvent', { x: mouse.x, y:mouse.y, id:this.socket.id, ip: ip.address(), screenSize:display.size});
             this.mousePosition = {
                 x: mouse.x,
                 y: mouse.y

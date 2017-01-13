@@ -10,7 +10,8 @@
     "server:dev": "webpack-dev-server  --inline --watch --progress --hot --content-base ./",
     "build": "NODE_ENV=prod webpack --progress && cd ./dist && npm i",
     "package:osx": "npm run build && npm run pack:osx",
-    "package:all": "electron-packager ./dist appstract --overwrite --no-prune --all",
+    "package:windows": "npm run build && npm run pack:win64",
+    "package:all": "npm run build && electron-packager ./dist appstract --out=build --overwrite --no-prune --all",
     "pack:osx": "electron-packager ./dist appstract:client --out=build --platform=darwin --arch=x64  --overwrite --no-prune",
     "pack:win64":"electron-packager ./dist appstract:client --out=build --platform=win32 --arch=x64  --overwrite --no-prune"
 
