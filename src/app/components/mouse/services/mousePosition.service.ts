@@ -3,6 +3,7 @@ export interface MousePositionInterface {
     y: number
 }
 
+
 import {Injectable, NgZone} from '@angular/core';
 import { SocketService } from '../../socket/services/socket.service';
 
@@ -34,14 +35,17 @@ export class MousePositionService {
 
     loop() {
         let mouse = electron.screen.getCursorScreenPoint();
+        let display = electron.screen.getDisplayNearestPoint(mouse)
+
+
 
         if (!this.isSamePosition(mouse) && this.socketService.connected) {
+
+
             this.socket = this.socketService.getSocket();
-            //console.log(this.socket);
-            //console.log('sending mouse position %s %s', JSON.stringify({ x: mouse.x, y:mouse.y, id:socket.id, ip: ip.address()}), Date.now())
             console.log('sending mouse position %s %s', JSON.stringify({x: mouse.x, y: mouse.y}), Date.now())
 
-            this.socket.emit('mouseEvent', { x: mouse.x, y:mouse.y, id:this.socket.id, ip: ip.address()});
+            this.socket.emit('mouseEvent', { x: mouse.x, y:mouse.y, id:this.socket.id, ip: ip.address(), workArea:display.size});
             this.mousePosition = {
                 x: mouse.x,
                 y: mouse.y

@@ -82,7 +82,7 @@ const app = electron.app
 const ipcMain = electron.ipcMain;
 
 const menubar = require('menubar')
-const mb = menubar({preloadWindow:true});
+const mb = menubar({preloadWindow:true, width:800, alwaysOnTop:true});
 
 
 // Module to create native browser window.
@@ -101,9 +101,11 @@ var relaunch = function(){
     app.exit(0)
 }
 mb.on('ready', () => {
-
+    mb.showWindow()
+    mb.window.openDevTools()
     console.log('app is ready')
 })
+
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
